@@ -12,17 +12,29 @@ lab7/
 ├── notebooks/                  run_unit_tests, run_dq_suite, delta_constraints
 └── lakeflow_quarantine_snippet.py
 ```
+bundle_run_unit_tests_success:
+![alt text](image-4.png)
 
+bundle_run_dq_suite_success:
+![alt text](image-5.png)
 
+dq_scorecard_and_non_pass:
+![alt text](image-6.png)
 
+Databricks connect session:
 ![alt text](<Screenshot 2026-11-22 232321.png>)
 
+Pytest local, 39 tests passed:
 ![alt text](<Screenshot 2026-11-22 232334.png>)
 
+ci_green:
 ![alt text](image.png)
 
-Delta constraints reject invalid writes:
+
 ![alt text](image-1.png)
+
+Delta constraints reject invalid writes:
+![alt text](image-3.png)
 
 lakeflow_quarantine_table:
 ![alt text](image-2.png)
