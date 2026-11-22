@@ -1,0 +1,55 @@
+bundle:
+  name: lab7_dq_and_tests
+
+variables:
+  catalog:
+    default: dbr_dev_ua5816bd
+  login:
+    default: mariiasirska
+  cluster_id:
+    description: shared all-purpose cluster id
+
+resources:
+  jobs:
+    lab7_unit_tests:
+      name: ${var.login}_lab7_unit_tests
+      tasks:
+        - task_key: pytest
+          existing_cluster_id: ${var.cluster_id}
+          notebook_task:
+            notebook_path: ./notebooks/run_unit_tests.py
+            base_parameters:
+              bundle_root: ${workspace.file_path}
+
+    lab7_dq_suite:
+      name: ${var.login}_lab7_dq_suite
+      tasks:
+        - task_key: dq_suite
+          existing_cluster_id: ${var.cluster_id}
+          notebook_task:
+            notebook_path: ./notebooks/run_dq_suite.py
+            base_parameters:
+              bundle_root: ${workspace.file_path}
+              catalog: ${var.catalog}
+              login: ${var.login}
+      schedule:
+        quartz_cron_expression: "0 0 * * * ?"
+        timezone_id: UTC
+        pause_status: PAUSED     
+
+    lab7_delta_constraints:
+      name: ${var.login}_lab7_delta_constraints
+      tasks:
+        - task_key: constraints
+          existing_cluster_id: ${var.cluster_id}
+          notebook_task:
+            notebook_path: ./notebooks/delta_constraints.py 
+
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: https://adb-7405604651938730.10.azuredatabricks.net/browse/folders/4107748390455508?o=7405604651938730
+    variables:
+      cluster_id: "0828-065013-gln8ogbm"
