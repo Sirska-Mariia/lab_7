@@ -1,4 +1,4 @@
-# Lab 7 — unit tests and data-quality testing (Olist medallion)
+# Lab 7. Unit tests and data-quality testing (Olist medallion)
 
 ```
 lab7/
@@ -13,15 +13,9 @@ lab7/
 └── lakeflow_quarantine_snippet.py
 ```
 
-## Using the module in the Lab 4 notebook
-Replace the `t_orders`/`t_customers`/... cells with imports (the bundle syncs `src/` to the workspace):
-```python
-import sys; sys.path.insert(0, "/Workspace/<path-to-bundle>/files/src")
-from olist.transforms import transform_orders, split_valid, latest_per_key
-```
 
-## Databricks Connect (run the tests locally against the shared cluster)
-1. Python version must match the cluster runtime (check Compute -> Databricks Runtime Version; e.g. DBR 15.4 = Python 3.11).
+## Databricks Connect
+1. Python version must match the cluster runtime.
 2. New venv, then install the package for your DBR (do NOT install pyspark next to it):
    ```
    python -m venv .venv
