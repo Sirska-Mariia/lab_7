@@ -12,7 +12,7 @@ lab7/
 ├── notebooks/                  run_unit_tests, run_dq_suite, delta_constraints
 └── lakeflow_quarantine_snippet.py
 ```
-
+![alt text](image.png)
 
 ## Databricks Connect
 1. Python version must match the cluster runtime.
