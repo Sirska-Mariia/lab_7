@@ -12,7 +12,20 @@ lab7/
 ├── notebooks/                  run_unit_tests, run_dq_suite, delta_constraints
 └── lakeflow_quarantine_snippet.py
 ```
+
+
+
+![alt text](<Screenshot 2026-11-22 232321.png>)
+
+![alt text](<Screenshot 2026-11-22 232334.png>)
+
 ![alt text](image.png)
+
+Delta constraints reject invalid writes:
+![alt text](image-1.png)
+
+lakeflow_quarantine_table:
+![alt text](image-2.png)
 
 ## Databricks Connect
 1. Python version must match the cluster runtime.
